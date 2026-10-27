@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Deluxe Shawarmazing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="top"><div class="wrap">
+  <a class="logo" href="#top">🌯 Deluxe Shawarmazing</a>
+  <button class="cartbtn" id="cartBtn" aria-label="Open your cart">Cart <span id="badge">0</span></button>
+</div></header>
+
+<main id="top">
+  <!-- ===== HERO ===== -->
+  <section class="hero"><div class="wrap">
+    <div>
+      <h1>Shaved fresh off the spit.</h1>
+      <p>Slow-roasted chicken and beef, wrapped warm with garlic sauce and pickles. Order in a minute.</p>
+      <a class="cta" href="#menu">See the menu</a>
+    </div>
+    <div class="spit" id="spit" role="img" aria-label="A spinning shawarma spit. Tap to spin faster.">
+      <div class="rod"></div><div class="cone"></div><div class="rod base"></div>
+      <small>Tap to spin faster</small>
+    </div>
+  </div></section>
+
+  <!-- ===== MENU ===== -->
+  <section class="wrap" id="menu">
+    <div class="menuhead">
+      <h2>Menu</h2>
+      <div class="chips" id="chips" role="group" aria-label="Filter menu"></div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+</main>
+
+<!-- ===== CUSTOMIZE DIALOG (wraps and plates) ===== -->
+<dialog id="dlg" aria-labelledby="dTitle"><div class="dlg" id="dlgBody"></div></dialog>
+
+<!-- ===== CART DRAWER: three views (cart, checkout, done) ===== -->
+<div class="veil" id="veil"></div>
+<aside class="drawer" id="drawer" aria-label="Your cart" aria-hidden="true">
+  <div class="dh"><h2 id="dTitleCart">Your order</h2><button class="x" id="closeCart" aria-label="Close cart">✕</button></div>
+
+  <div id="vCart" style="display:contents">
+    <div class="dbody" id="lines"></div>
+    <div class="foot" id="foot">
+      <div class="meter" aria-hidden="true"><i id="meter"></i></div>
+      <small id="meterTxt"></small>
+      <div class="sum"><span>Subtotal</span><span id="sub"></span></div>
+      <div class="sum"><span>Delivery</span><span id="fee"></span></div>
+      <div class="sum total"><span>Total</span><span id="tot"></span></div>
+      <button class="btn" id="toCheckout">Checkout</button>
+    </div>
+  </div>
+
+  <div class="dbody" id="vCheckout" hidden>
+    <form id="form">
+      <label class="f">Name<input type="text" id="fName" required autocomplete="name"></label>
+      <label class="f">Phone<input type="tel" id="fPhone" required autocomplete="tel"></label>
+      <label class="f">Delivery address<textarea id="fAddr" rows="3" required autocomplete="street-address"></textarea></label>
+      <label class="f">Note for the kitchen<input type="text" id="fNote" placeholder="No onions, extra napkins…"></label>
+      <div class="sum total"><span>Total</span><span id="tot2"></span></div>
+      <button class="btn" type="submit">Place order</button>
+      <button class="btn ghost" type="button" id="back">Back to cart</button>
+    </form>
+  </div>
+
+  <div class="dbody" id="vDone" hidden>
+    <h3 style="font:800 1.5rem var(--display);margin:0" id="doneTitle"></h3>
+    <p style="margin:0;color:var(--muted)" id="doneSub"></p>
+    <ol class="steps" id="steps">
+      <li>Order received</li><li>Shaving the spit</li><li>Wrapping it up</li><li>On the way</li>
+    </ol>
+    <button class="btn" id="again">Order again</button>
+  </div>
+</aside>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
